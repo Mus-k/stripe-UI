@@ -1,0 +1,1273 @@
+/* 
+the design: 
+
+header -> nav 
+
+main -> sections with full screen width -> wrappers
+
+
+the sections will be for backgrounds only and wrappers to center things in the screen when you zoom out.
+
+footer -> links and stuff
+
+
+
+
+*/
+
+/* --------------------------------initials starts here-------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+  font-size: 62.5%;
+  --font-family: "Inter", sans-serif;
+  --font-color-1: rgb(17, 20, 57);
+  --font-color-1-hover: rgba(17, 20, 57, 0.5);
+  --font-color-2: #425466;
+  --font-color-white: white;
+  --transition--duration-regular: 300ms;
+  --border-radius--buttons: 3rem;
+  --buttons-padding: 0.5em 1.7em;
+  --full-parent-width: 100%;
+  --full-parent-height: 100%;
+  --sec3-font-family: "Inter";
+  --sec3-white-color: #fff;
+  --sec3-purple-color: #5f5bfe;
+  --sec3-dark-color: #002640;
+  --sec3-text-color: #3b5566;
+  --sec3-background-color: #f5f9fc;
+  --sec3-transition-duration-normal: 300ms;
+  --sec4-blue-color: #00d7ff;
+  --sec4-text-color: #a8becc;
+  --footer-dark-color: #0e2943;
+  --box-shadow: 0 0 20px 2px grey;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+a {
+  font-size: inherit;
+  text-decoration: none;
+  transition-duration: var(--transition--duration-regular);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-size: inherit;
+  background: none;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+img {
+  width: var(--full-parent-width);
+  height: var(--full-parent-height);
+}
+
+/* --------------------------------initials ends here-------------------------- */
+/* 
+
+
+
+*/
+/* --------------------------------utility classes starts here-------------------------- */
+
+.img-it__contain {
+  object-fit: contain;
+}
+
+.img-it__cover {
+  object-fit: cover;
+}
+
+.img-it__fill {
+  object-fit: fill;
+}
+
+.radius-it {
+  border-radius: 1rem;
+}
+
+.radius-it_3rem {
+  border-radius: 3rem;
+}
+
+.contain-it {
+  width: fit-content;
+  height: fit-content;
+}
+
+.shadow-it {
+  box-shadow: var(--box-shadow);
+}
+
+.opacity-it:hover {
+  opacity: 0.5;
+}
+
+.curser-it:hover {
+  cursor: pointer;
+}
+
+.quick-position {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* animation keyframes for buttons */
+
+.arrow-after:hover:after {
+  content: "";
+  position: absolute;
+  animation-name: arrow;
+  animation-duration: 50ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes arrow {
+  0% {
+    content: ">";
+    right: 1rem;
+  }
+
+  100% {
+    content: "->";
+    right: 0.5rem;
+  }
+}
+
+/* TODO: will create the 3 columns for that graphic line all along the page */
+body {
+  font-size: 1.6rem;
+  background-color: var(--sec3-background-color);
+  opacity: 1;
+}
+/* Body ends here */
+
+/* --------------------------------animation starts here-------------------------- */
+/* TODO: Copy the animation from stripeV1 */
+.animation {
+  position: absolute;
+  width: var(--full-parent-width);
+  height: 50rem;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  z-index: 2;
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+  animation: gradient 20s ease infinite;
+}
+
+/* --------------------------------animation ends here-------------------------- */
+/* 
+
+
+
+*/
+/* --------------------------------header starts here-------------------------- */
+header {
+  width: var(--full-parent-width);
+  height: 10rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* nav works as a wrapper for the navbar */
+nav {
+  width: 100rem;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.circle {
+  display: none;
+}
+
+.navbar-list {
+  width: var(--full-parent-width);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.navbar-list * {
+  color: var(--font-color-white);
+}
+
+.navbar-list li:nth-child(3) button {
+  padding: var(--buttons-padding);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius--buttons);
+  transition-duration: var(--transition--duration-regular);
+}
+
+.navbar-list li:nth-child(3) button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-list div.logo {
+  width: 6rem;
+  height: 3rem;
+  transition-duration: var(--transition--duration-regular);
+}
+
+.navbar-list__inner-list {
+  display: flex;
+  gap: 4rem;
+}
+
+.navbar-list__inner-list a:hover {
+  opacity: 0.5;
+}
+
+/* --------------------------------header ends here-------------------------- */
+/* 
+
+
+
+
+
+
+
+
+*/
+/* --------------------------------main starts here-------------------------- */
+/* to stop the horizontal scrollbar from showing up from unkown reasons */
+main {
+  overflow: hidden;
+}
+
+/* --------------------------------main ends here-------------------------- */
+/* 
+
+
+
+
+
+
+
+
+
+*/
+/* --------------------------------Section1 starts here-------------------------- */
+.section1 {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  background-color: white;
+  z-index: 1;
+}
+
+/* div flexbox for section1 items*/
+.section1-wrapper-inner {
+  max-width: 100rem;
+  height: 80rem;
+  display: flex;
+  z-index: 3;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* div flex item 1 */
+.section1-inner__text {
+  align-self: center;
+  display: flex;
+  height: 80%;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* h1 */
+.section1-inner__text--title {
+  width: max-content;
+  letter-spacing: -1px;
+  font-size: 7rem;
+  font-weight: 1000;
+  display: flex;
+  flex-direction: column;
+  background-clip: text;
+  color: rgb(17, 20, 57, 0.8);
+}
+
+.section1-inner__text--des-but-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* p */
+.section1-inner__text--description {
+  font-weight: 500;
+  color: var(--font-color-2);
+  align-self: end;
+}
+
+/* div */
+.section1-inner__text--button-wrapper {
+  display: flex;
+  width: var(--full-parent-width);
+  gap: 1em;
+  align-self: start;
+}
+
+.section1-inner__text--button-wrapper button:first-child {
+  padding: var(--buttons-padding);
+  color: var(--font-color-white);
+  background-color: var(--font-color-1);
+  border-radius: var(--border-radius--buttons);
+  transition-duration: var(--transition--duration-regular);
+}
+
+.section1-inner__text--button-wrapper button:first-child:hover {
+  background-color: var(--font-color-1-hover);
+}
+
+.section1-inner__text--button-wrapper button:last-child {
+  padding: var(--buttons-padding);
+  color: var(--font-color-1);
+  background-color: transparent;
+}
+
+.section1-inner__text--button-wrapper button:last-child:hover {
+  color: var(--font-color-2);
+  background-color: transparent;
+  transition-duration: var(--transition--duration-regular);
+}
+
+/* div flex item 2 */
+.section1-inner__img {
+  position: relative;
+  top: 2rem;
+  left: 30rem;
+}
+
+/* div with half of the image width */
+.section1-inner__phone {
+  position: absolute;
+  top: 10rem;
+  translate: -20% -5%;
+  width: calc(581px / 2);
+  height: calc(1190px / 2);
+  z-index: 1;
+}
+
+/* img  581x1190*/
+.section1-inner__phone--img {
+  border-radius: 4rem;
+}
+
+/* div */
+.section1-inner__desktop {
+  width: calc(1201px / 1.1);
+  height: calc(817px / 1.1);
+}
+
+/* img 1201x817 */
+.section1-inner__desktop--img {
+  border-radius: 1rem;
+}
+/* --------------------------------Section1 ends here-------------------------- */
+/* 
+
+
+
+
+
+
+
+
+*/
+/* --------------------------------Section2 starts here-------------------------- */
+.section2 {
+  background-color: white;
+  display: flex;
+}
+
+.section2-wrapper-inner {
+  max-width: 100rem;
+  margin: auto;
+  padding: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10rem;
+}
+
+.section2-inner-first,
+.section2-inner-second {
+  width: 100%;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+}
+
+.section2-inner-first > div,
+.section2-inner-second > div {
+  width: 10rem;
+  height: 10rem;
+}
+
+/* --------------------------------Section2 ends here-------------------------- */
+/* 
+
+
+
+
+
+
+
+
+
+
+*/
+/* --------------------------------Section3 starts here-------------------------- */
+.section3 {
+  background-color: var(--sec3-background-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* This one for responsiveness */
+.section3-inner-wrapper {
+  position: relative;
+  font-size: 2rem;
+  max-width: fit-content;
+  margin: 5rem;
+  margin-bottom: 0;
+}
+
+.section3-inner-wrapper > * {
+  margin-bottom: 5rem;
+}
+
+.section3-uni {
+  font-weight: 600;
+  color: var(--sec3-purple-color);
+}
+
+.section3-inner-header {
+  color: var(--sec3-dark-color);
+  max-width: 30ch;
+  font-weight: 500;
+}
+
+.section3-inner-paragraph {
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+}
+
+.section3-inner-paragraph__child {
+  max-width: 40ch;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--sec3-text-color);
+}
+
+.section3-inner-paragraph__child a {
+  font-weight: 500;
+  color: var(--sec3-purple-color);
+  transition-duration: var(--sec3-transition-duration-normal);
+}
+
+.section3-inner-paragraph__child a:hover {
+  color: var(--sec3-dark-color);
+}
+
+.section3-inner-button button {
+  padding: var(--buttons-padding);
+  color: var(--sec3-white-color);
+  font-weight: 600;
+  background-color: var(--sec3-purple-color);
+  transition-duration: var(--sec3-transition-duration-normal);
+  border-radius: var(--border-radius--buttons);
+}
+
+.section3-inner-button button:hover {
+  background-color: var(--sec3-dark-color);
+}
+
+/* Contains the grid of images*/
+.section3-inner-wrapper2 {
+  position: relative;
+  bottom: 5rem;
+  max-width: fit-content;
+  height: calc(13 * 70px);
+  padding: 2rem;
+  margin-top: 0;
+}
+
+/* This wrapper contain the divs of images */
+.section3-inner-img-wrapper {
+  display: grid;
+  grid-template-columns: repeat(16, 70px);
+  grid-template-rows: repeat(10, 85px);
+}
+
+.visa_position {
+  margin-left: 4rem;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.invoice_position {
+  margin-left: 3rem;
+  grid-column: 6;
+  grid-row: 2;
+}
+
+.terminal_position {
+  grid-column: 14;
+  /* position: relative; */
+  /* bottom: 10rem; */
+}
+
+.phone_position {
+  grid-column: 2;
+  grid-row: 5;
+}
+
+.fraud_position {
+  margin-left: 3rem;
+  grid-column: 6;
+  grid-row: 7;
+}
+
+/* images propreties here, min-width/height = max-width/height - 5rem */
+.section3-inner-img__visa {
+  max-width: 35rem;
+  min-width: 30rem;
+  max-height: 26.8rem;
+  min-height: 20.8rem;
+}
+
+.section3-inner-img__invoice {
+  max-width: 64.6rem;
+  min-width: 49.6rem;
+  max-height: 54.8rem;
+  min-height: 39.8rem;
+}
+
+.section3-inner-img__payment-terminal {
+  max-width: 30rem;
+  min-width: 20rem;
+  max-height: 45rem;
+  min-height: 35rem;
+}
+
+.section3-inner-img__phone {
+  max-width: 35rem;
+  min-width: 20rem;
+  max-height: 50rem;
+  min-height: 35rem;
+}
+
+.section3-inner-img__fraud {
+  max-width: 84.4rem;
+  min-width: 64.4rem;
+  max-height: 59.3rem;
+  min-height: 39.3rem;
+}
+
+/* --------------------------------Section3 ends here-------------------------- */
+
+/* --------------------------------Section4 starts here-------------------------- */
+.section4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--sec3-dark-color);
+  clip-path: polygon(0 10%, 100% 0, 100% 80%, 0 100%);
+  margin-top: -20vh;
+  height: 150rem;
+}
+
+.section4-uni {
+  color: var(--sec4-blue-color);
+}
+
+.section4-inner {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+
+.section4-inner-wrapper {
+  max-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.section4-inner__main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section4-inner__main--header {
+  color: var(--sec3-white-color);
+  max-width: 40ch;
+}
+
+.section4-inner__main--paragraph {
+  max-width: 50ch;
+  color: var(--sec4-text-color);
+}
+
+.section4-inner__main--button button {
+  padding: var(--buttons-padding);
+  font-weight: 500;
+  background-color: var(--sec4-blue-color);
+  color: var(--sec3-dark-color);
+  border-radius: var(--border-radius--buttons);
+  transition-duration: var(--sec3-transition-duration-normal);
+}
+
+.section4-inner__main--button > button:hover {
+  background-color: var(--sec3-background-color);
+}
+
+.section4-inner__main2-wrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+.section4-inner__main2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.section4-inner__main2--header h3 {
+  font-weight: 500;
+  color: var(--sec3-white-color);
+}
+
+.section4-inner__main2--paragraph {
+  max-width: 25ch;
+  color: var(--sec4-text-color);
+}
+
+.section4-inner-main2--button button {
+  font-weight: 500;
+  padding: var(--buttons-padding);
+  background-color: transparent;
+  color: var(--sec4-blue-color);
+  border-radius: var(--border-radius--buttons);
+  transition-duration: var(--sec3-transition-duration-normal);
+}
+
+.section4-inner-main2--button > button:hover {
+  color: var(--sec3-white-color);
+}
+
+/* 681x823 */
+.section4-img {
+  width: calc(681px / 1.5);
+  min-width: calc(681px / 2);
+}
+
+/* --------------------------------Section4 ends here-------------------------- */
+
+.arya-cardsSec {
+  font-family: var(--sec3-font-family);
+  max-width: fit-content;
+  max-height: fit-content;
+  margin: auto;
+}
+
+.arya-cards-title {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem;
+}
+.arya-cards-title h2 {
+  color: rgba(99, 90, 255, 0.9);
+  font-size: 1.8rem;
+  margin: 3rem 0;
+}
+.arya-cards-title h1 {
+  color: rgb(10, 37, 64);
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 5rem;
+}
+.arya-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin: 3rem;
+}
+.arya-cards a {
+  color: var(--sec3-purple-color);
+}
+.arya-cards a:hover {
+  color: var(--sec3-dark-color);
+  font-weight: 500;
+}
+.arya-cards img {
+  width: 5rem;
+}
+.arya-cards h5 {
+  padding-left: 1rem;
+  border-left: 0.5px solid var(--sec3-purple-color);
+  margin: 1rem 0;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.arya-cards p {
+  opacity: 0.8;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+/* --------------------------------Section5 ends here-------------------------- */
+
+/* --------------------------------Section6 starts here-------------------------- */
+.section6 {
+  background-color: var(--sec3-dark-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 90rem;
+  clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* section content wrapper */
+.section6-inner-wrapper {
+  position: relative;
+  display: flex;
+  gap: 4rem;
+  height: 50%;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.section6-globe {
+  position: absolute;
+  right: 0;
+  top: -20rem;
+  z-index: -1;
+  animation-name: rotate;
+  animation-duration: 100s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.section6-globe > img {
+  border-radius: 100%;
+}
+
+/* flex item 1 */
+.section6-inner__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.section6-uni {
+  color: var(--sec4-blue-color);
+}
+
+.section6-inner__text-header {
+  max-width: 15ch;
+  color: var(--sec3-white-color);
+}
+
+.section6-inner__text-paragraph {
+  max-width: 40ch;
+  color: var(--sec4-text-color);
+}
+
+.section6-inner__text-paragraph a {
+  color: var(--sec4-blue-color);
+}
+
+.section6-inner__text-paragraph a:hover {
+  color: var(--sec3-white-color);
+}
+
+/* flex item 2 */
+.section6-inner__columns-wrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+.section6-inner__columns-wrapper > div {
+  max-width: 20ch;
+}
+
+.section6-inner__columns-wrapper h3 {
+  color: var(--sec3-white-color);
+}
+
+.section6-inner__columns-wrapper p {
+  color: var(--sec4-text-color);
+}
+
+/* --------------------------------Section6 ends here-------------------------- */
+/* 
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+/* --------------------------------Section7 starts here-------------------------- */
+.section7 {
+  margin: 10vh 0;
+  background-color: transparent;
+  display: flex;
+}
+
+.section7-inner-wrapper {
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10rem;
+  padding: 2rem;
+}
+
+.section7-inner__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  font-size: 2rem;
+}
+
+h5.section7-uni {
+  color: var(--sec3-purple-color);
+}
+
+.section7-inner__text-header {
+  color: var(--sec3-dark-color);
+}
+
+.section7-inner__text-paragraph {
+  font-weight: 500;
+  max-width: 40ch;
+  color: var(--sec3-text-color);
+}
+
+.section7-inner__text-button > button {
+  background-color: var(--sec3-purple-color);
+  padding: var(--buttons-padding);
+  border-radius: var(--border-radius--buttons);
+  color: var(--sec3-white-color);
+}
+
+.section7-inner__text-button > button:hover {
+  background-color: var(--font-color-1);
+}
+
+.section7-inner__card-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  gap: 5rem;
+  box-shadow: 0 0 20px 5px grey;
+  min-height: 50rem;
+  border-radius: 3rem;
+}
+
+.section7-inner__card-background {
+  position: absolute;
+  border-radius: 3rem;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 65%);
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 200% 200%;
+  animation: gradient 20s ease infinite;
+  z-index: -1;
+}
+
+.section7-inner__card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 5rem;
+}
+
+.section7-inner__card-header-img > img {
+  width: 10rem;
+  height: 5rem;
+}
+
+.section7-inner__card-header-title {
+  font-size: 4rem;
+  color: var(--sec3-white-color);
+}
+
+.section7-inner__card-imgs {
+  display: flex;
+  margin-left: 5rem;
+  margin-top: 15rem;
+}
+
+.section7-inner__card-imgs img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100px;
+}
+
+.section7-inner__card-text {
+  padding: 3rem;
+}
+
+h6.section7-uni {
+  font-size: 2rem;
+  color: var(--sec3-purple-color);
+}
+
+.section7-inner__card-paragraph {
+  font-size: 3rem;
+  font-weight: 700;
+  max-width: 25ch;
+  color: var(--sec3-dark-color);
+}
+
+/* --------------------------------Section7 ends here-------------------------- */
+/* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+/* --------------------------------Section8 starts here-------------------------- */
+.section8 {
+  padding: 10vh 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.arya-topFooter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.arya-right-topfooter {
+  display: flex;
+  margin: 3rem;
+}
+
+.arya-topFooter-btns {
+  display: flex;
+}
+.arya-topFooter-btns > button {
+  padding: var(--buttons-padding);
+}
+
+.arya-img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.arya-left-topFooter {
+  margin: 3rem;
+}
+
+.arya-left-topFooter h1 {
+  margin-bottom: 20px;
+  font-weight: 550;
+  font-size: 2.5rem;
+}
+
+.arya-left-topFooter p {
+  opacity: 0.8;
+  margin-bottom: 20px;
+  font-size: 1.7rem;
+  line-height: 2.7rem;
+}
+.arya-left-topFooter p a {
+  font-weight: 500;
+  color: var(--sec3-purple-color);
+}
+.arya-left-topFooter p a:hover {
+  color: var(--sec3-dark-color);
+}
+.arya-code-card {
+  margin-left: 20px;
+}
+.arya-tag-card p {
+  margin-bottom: 20px;
+}
+.arya-code-card p {
+  margin-bottom: 20px;
+}
+.arya-tag-card button {
+  color: var(--sec3-purple-color);
+  padding: var(--buttons-padding);
+}
+
+.arya-tag-card button:hover {
+  color: var(--sec3-dark-color);
+}
+
+.arya-code-card button {
+  color: var(--sec3-purple-color);
+  padding: var(--buttons-padding);
+}
+
+.arya-code-card button:hover {
+  color: var(--sec3-dark-color);
+}
+
+.arya-strtBtn {
+  background-color: rgb(99, 91, 255);
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  border-radius: 17px;
+  padding: 7px 13px;
+  font-family: "Inter";
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.arya-strtBtn:hover {
+  background-color: rgb(10, 37, 64, 1);
+}
+.arya-cntctBtn {
+  background-color: transparent;
+  color: rgb(99, 91, 255);
+  border: none;
+  border-radius: 17px;
+  padding: 6px 12px;
+  font-family: "Inter";
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.arya-cntctBtn:hover {
+  color: rgb(10, 37, 64, 1);
+}
+
+/* --------------------------------Section8 ends here-------------------------- */
+
+/* --------------------------------footer starts here-------------------------- */
+.footer {
+  padding-top: 10vh;
+  background-color: var(--sec3-background-color);
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+  margin-top: -5%;
+}
+
+.footer-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10rem;
+  max-width: fit-content;
+  margin: auto;
+  padding: 12rem 3rem;
+  font-size: 2rem;
+  font-family: var(--sec3-font-family);
+}
+
+.footer-container--header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-container--header__logo {
+  width: 8rem;
+  transition-duration: var(--sec3-transition-duration-normal);
+}
+
+.footer-container--header__logo:hover {
+  opacity: 0.5;
+}
+
+.footer-container--header__address > button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-container--header__address > button > address {
+  font-family: "Inter";
+  font-size: 1.5rem;
+  font-style: normal;
+  color: var(--footer-dark-color);
+  font-weight: 500;
+}
+
+.footer-container--header__local > button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--footer-dark-color);
+  font-family: "Inter";
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.footer-container--header__copywrite {
+  font-family: "Inter";
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--sec3-text-color);
+}
+
+/* New footer ends here */
+
+/* columns for links to have a great responsive layout */
+/* making all the div that contains the divs of lists flexable and can grow, a small trick to apply on devices with small screens ;) */
+.footer-links {
+  flex-grow: 1;
+  column-count: 2;
+  column-width: 10rem;
+}
+
+/* utility class for divs that contain "ul" for links */
+.footer-container--headlink {
+  break-inside: avoid;
+  font-size: 1.4rem;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+/* utility class for spans so we can edit them a bit and play with the font size and color */
+.footer-container--headlink > span {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--footer-dark-color);
+}
+
+/* here we display each list as a flex so we have more control over the list items and links */
+.footer-container--headlink > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* this to make each list item fits the link inside it to save more space if we want to add stuff */
+.footer-container--headlink > ul > li {
+  width: fit-content;
+  height: fit-content;
+}
+
+/* giving a nice transaction/color/ and other propreties for the links */
+.footer-container--headlink > ul > li > a {
+  color: var(--footer-dark-color);
+  font-weight: 500;
+  transition-duration: 300ms;
+  transition-property: color;
+}
+
+/* changes the color of links on hover */
+.footer-container--headlink > ul > li > a:hover {
+  color: var(--sec4-text-color);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .section2-wrapper-inner {
+    flex-wrap: nowrap;
+  }
+
+  .section2-inner-first,
+  .section2-inner-second {
+    flex-direction: column;
+  }
+
+  .navbar-list {
+    justify-content: space-around;
+  }
+  .circle {
+    display: block;
+    border-radius: 3rem;
+    width: 4.5rem;
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .circle:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+
+  .navbar-list > ul:nth-child(2),
+  .navbar-list > li:nth-child(3) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .footer-links {
+    column-count: 3;
+  }
+  .section3-inner-paragraph {
+    flex-flow: row;
+  }
+}
